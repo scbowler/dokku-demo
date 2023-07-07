@@ -7,6 +7,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server/server.js",
     "build": "npm run build --prefix client",
+    "prod:db:import": "sh database/prod-import.sh",
     "db:import": "sh database/import.sh",
     "dev:db": "pgweb --db=`awk 'BEGIN { FS = \"/\" } ; /DATABASE_URL=/ {print $NF}' server/.env`",
     "dev:client": "npm run start --prefix client",
