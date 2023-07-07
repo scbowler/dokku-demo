@@ -1,5 +1,9 @@
 #!/bin/sh
 
+set -e
+
+wd=`echo "$PWD" | sed 's/\/database$//'`/database
+
 if [ -n "$DATABASE_URL" ]; then
   psql "$DATABASE_URL" \
     -f "$wd"/schema.sql \
