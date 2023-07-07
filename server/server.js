@@ -26,6 +26,12 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello, World!' });
 });
 
+app.get('/api/todos', async (req, res) => {
+  const { rows } = await db.query('select * from todos');
+
+  res.json(rows);
+});
+
 /**
  * Serves React's index.html if no api route matches.
  *
